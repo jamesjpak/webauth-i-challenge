@@ -7,18 +7,26 @@ module.exports = {
 };
 
 function find() {
-    return null
+    return db('users')
+    .select('id', 'username', 'password');
 }
 
-function findBy() {
-    return null
+function findBy(filter) {
+    return db('users')
+    .where(filter)
 }
 
-function add() {
-    return null
+function add(user) {
+    return db('users')
+    .insert(user, 'id')
+    .then(ids => {
+        const[id] = ids;
+        return findById(id);
+    })
 }
 
 function findById(id) {
-    return null
+    return db('users')
+    .where({ id })
+    .first()
 }
-]
