@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './dev.sqlite3'
+      filename: './database/auth.db3'
     },
     pool: {
       // SQLite will not enforce FK by default
